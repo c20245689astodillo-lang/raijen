@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en" class="dark scroll-smooth">
+
 
 <head>
     <meta charset="UTF-8">
@@ -8,77 +9,103 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style type="text/tailwindcss">
         @custom-variant dark (&:where(.dark, .dark *));
-    </style>
+   
+    @layer components {
+    .btn-primary {
+    @apply px-6 py-3 bg-red-800 text-white hover:bg-orange-400 transition-colors dark:bg-slate-700;
+    }
+
+    .btn-secondary {
+    @apply inline-block px-6 py-3 rounded-full font-semibold bg-purple-900 text-white hover:bg-purple-700 transition-colors duration-300 dark:bg-white dark:text-purple-950 dark:hover:bg-yellow-300;
+    }
+
+    .btn-accent {
+    @apply inline-block px-6 py-3 rounded-full font-semibold bg-purple-950 text-white hover:bg-purple-800 transition-colors duration-300;
+    }
+
+    .darkmode {
+    @apply border border-yellow-400 bg-yellow-300 text-purple-950 rounded-2xl p-6 sm:p-8 shadow-lg;
+    }
+
+}
+</style>
+
 </head>
 
-<body class="bg-pink-50 text-purple-900 dark:bg-slate-900 dark:text-white max-w-3xl mx-auto p-6 text-center">
+<body class="bg-white text-purple-950 dark:bg-purple-950 dark:text-white max-w-5xl mx-auto p-4 sm:p-8 text-left">
 
-    <h1 class="text-3xl font-bold underline text-purple-700">
-        Raijen C. Astodillo
-    </h1>
+    <div
+        class="rounded-[2rem] border border-purple-200 bg-purple-50/60 dark:border-white/20 dark:bg-white/5 backdrop-blur-lg shadow-xl p-6 sm:p-10">
 
-    <button id="toggledark"
-        class="bg-black text-white px-6 py-3 rounded-[10px] transition-colors duration-1000 hover:bg-pink-400 hover:text-black">
-    Toggle   
-    </button>
+        <header class="flex items-center justify-between gap-4">
+            <nav>
+                <ul class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm list-none">
+                    <li><a class="hover:underline" href="#about">About</a></li>
+                    <li><a class="hover:underline" href="#services">Services</a></li>
+                    <li><a class="hover:underline" href="#contact">Contact Me</a></li>
+                </ul>
+            </nav>
 
+            <button id="toggledark" class="btn-primary rounded-full" type="button">
+                Toggle
+            </button>
+        </header>
 
-    <header class="flex flex-col items-center gap-3 py-8 border-b border-purple-200">
-        <span class="text-sm text-purple-500">c20245689.astodillo@csav.edu.ph</span>
-        <nav>
-            <ul class="flex items-center gap-6 text-sm list-none">
-                <li><a class="transition-colors hover:text-pink-400" href="#projects">Projects</a></li>
-                <li><a class="transition-colors hover:text-pink-400" href="#services">Services</a></li>
-                <li><a class="transition-colors hover:text-pink-400" href="#contact">Contact Me</a></li>
-            </ul>
-        </nav>
-    </header>
-
-
-    <main class="flex flex-wrap gap-[30px] p-[50px] m-[50px] max-sm:p-4 max-sm:m-2.5 max-sm:gap-5">
-
-
-        <section id="projects" class="scroll-mt-24">
-            <h2 class="text-pink-500 max-md:text-5xl">My Projects</h2>
-            <p>Personal portfolio, payroll system, company website, startup website, and compliance monitoring system.
-            </p>
+        <section id="hero" class="scroll-mt-24 py-16 sm:py-24">
+            <h1 class="text-5xl sm:text-7xl leading-tight">
+                <span class="font-extrabold block">Raijen</span>
+                <span class="font-light block">C. Astodillo</span>
+            </h1>
+            <p class="mt-4 text-lg font-light max-w-md">Systems analyst and web builder.</p>
+            <span
+                class="inline-flex items-center gap-2 mt-8 rounded-full bg-yellow-300 text-purple-950 px-4 py-2 text-sm">
+                c20245689.astodillo@csav.edu.ph
+            </span>
+            <div class="flex flex-wrap gap-3 mt-8">
+                <a href="#contact" class="btn-secondary">Contact me</a>
+            </div>
         </section>
 
-        <section id="services" class="scroll-mt-24 border border-gray-300 dark:border-slate-800">
-            <h2 class="text-pink-500 max-md:text-5xl">My Services</h2>
-            <p>Website Creation, System Creation, AI Automation, Database Management, Project Management, Systems
-                Analyst</p>
-        </section>
+        <main class="flex flex-col gap-6">
 
-        <section id="contact" class="scroll-mt-24 max-w-xl mx-auto w-full">
-            <h2 class="text-3xl font-bold mb-8 text-center text-pink-300">Let's build together!</h2>
-            <form action="#" class="flex flex-col gap-5">
+            <section id="about" class="darkmode scroll-mt-24">
+                <h2 class="text-2xl font-extrabold">About Me</h2>
+                <p class="mt-3 font-light max-w-prose">Sytem analyst and web builder</p>
+            </section>
 
-                <!-- Name -->
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required
-                    class="rounded-lg bg-purple-900/60 text-white border border-pink-400/20 px-4 py-2 focus:outline-none focus:border-pink-400">
+            <section id="services" class="darkmode scroll-mt-24">
+                <h2 class="text-2xl font-extrabold">My Services</h2>
+                <p class="mt-3 font-light max-w-prose"> Website Creation, System Creation, AI Automation, Database Management, Systems Analyst</p>
+                
+            </section>
 
-                <!-- Email -->
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email" required
-                    class="rounded-lg bg-purple-900/60 text-white border border-pink-400/20 px-4 py-2 focus:outline-none focus:border-pink-400">
+            <section id="contact" class="darkmode scroll-mt-24">
+                <h2 class="text-3xl font-extrabold mb-6">Let's build together!</h2>
+                <form action="#" class="flex flex-col gap-2 max-w-xl">
 
-                <!-- Message -->
-                <label for="message">Message</label>
-                <textarea name="message" id="message" rows="5" required
-                    class="rounded-lg bg-purple-900/60 text-white border border-pink-400/20 px-4 py-2 focus:outline-none focus:border-pink-400"></textarea>
+                    <label for="name" class="font-semibold">Name</label>
+                    <input type="text" id="name" name="name" required
+                        class="mb-3 rounded-full bg-white text-purple-950 border border-purple-950 px-5 py-2 focus:outline-none focus:ring-2 focus:ring-purple-950">
 
-                <button type="submit"
-                    class="bg-black text-white px-6 py-3 rounded-[10px] transition-colors duration-1000 hover:bg-pink-400 hover:text-black">
-                    Send Message
-                </button>
-            </form>
-        </section>
-    </main>
+                    <label for="email" class="font-semibold">Email</label>
+                    <input type="email" name="email" id="email" required
+                        class="mb-3 rounded-full bg-white text-purple-950 border border-purple-950 px-5 py-2 focus:outline-none focus:ring-2 focus:ring-purple-950">
 
-    <footer class="bg-pink-300 p-5 mt-10">
-        <p class="text-purple-900 font-bold">Raijen Astodillo</p>
+                    <label for="message" class="font-semibold">Message</label>
+                    <textarea name="message" id="message" rows="5" required
+                        class="mb-3 rounded-2xl bg-purple text-white-950 border border-white-950 px-5 py-3 focus:outline-none focus:ring-2 focus:ring-purple-950"></textarea>
+
+                    <button type="submit" class="btn-secondary self-start">
+                        Send Message
+                    </button>
+                </form>
+            </section>
+        </main>
+
+    </div>
+
+    <footer class="bg-yellow-300 text-purple-950 rounded-full px-6 py-4 mt-6 text-center">
+        <p class="font-bold">Raijen Astodillo</p>
     </footer>
 
     <script>
@@ -90,6 +117,7 @@
         });
     </script>
 </body>
+
 
 </html>
 
